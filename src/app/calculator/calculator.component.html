@@ -1,0 +1,25 @@
+<table>
+    <tr>
+        <td> Number 1: </td>
+        <td> <input type="text" [(ngModel)]="num1"> </td>
+        <td> {{num1Err}} </td>
+    </tr>
+    <tr>
+        <td> Number 2: </td>
+        <td> <input type="text" [(ngModel)]="num2"> </td>
+        <td> {{num2Err}} </td>
+    </tr>
+    <tr>
+        <td> Result: </td>
+        <td> <input type="text" [(ngModel)]="result"> </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td>
+            <button (click)="operate('+')"> Add </button>
+            <button (click)="operate('-')"> Sub </button>
+            <button (click)="operate('*')"> Mul </button>
+            <button (click)="operate('/')"> Div </button>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,74 @@
+<!-- Attributes Directives : Dynamic Styling -->
+
+<p class="red big"> ngClass Style Demo</p>
+
+<p [class.red]="isRed" [class.big]="false"> ngClass Style Demo</p>
+
+<p [ngClass]="{red:false, big:false}"> ngClass Style Demo </p>
+
+<hr>
+
+<p style="color:red; background-color: aqua;"> Style Demo </p>
+
+<p [style.color]="pColor" [style.backgroundColor]="bgColor"> Style Demo </p>
+
+<p [ngStyle]="{'color':pColor, backgroundColor: bgColor}"> Style Demo </p>
+
+<input type="text" [(ngModel)]="colorVal">
+<button (click)="changeColor()"> Change Color </button>
+
+<hr>
+
+
+
+<!-- Structural Directive : *ngSwitch -->
+
+<div [ngSwitch]="digit">
+
+    <p *ngSwitchCase="1"> One </p>
+    <p *ngSwitchCase="2"> Two </p>
+    <p *ngSwitchCase="3"> Three </p>
+    <p *ngSwitchCase="4"> Four </p>
+    <p *ngSwitchCase="5"> Five </p>
+    <p *ngSwitchDefault> Not a Valid Digit </p>
+
+</div>
+
+<hr>
+
+<!-- Structural Directive : *ngFor -->
+
+<p *ngFor="let ct of cities"> {{ct}} </p>
+
+<ul>
+    <li *ngFor="let ct of cities"> {{ct}} </li>
+</ul>
+
+<table border='1' width='100%'>
+    <tr *ngFor="let ct of cities; let i = index; let e = even; let o = odd; let f = first; let l = last">
+        <td>{{i}}</td>
+        <td>{{e}}</td>
+        <td>{{o}}</td>
+        <td>{{f}}</td>
+        <td>{{l}}</td>
+        <td>{{ct}} </td>
+    </tr>
+</table>
+
+<hr>
+
+<!-- Structural Directive : *ngIf -->
+
+<p *ngIf="showIf"> ng if Demo </p>
+
+<p *ngIf="num%2==0; else oddpart"> Num is Even </p>
+
+<p *ngIf="num%2==0 then evenpart; else oddpart"> Num is Even </p>
+
+<ng-template #evenpart>
+    <p> Num is Even </p>
+</ng-template>
+
+<ng-template #oddpart>
+    <p> Num is Odd </p>
+</ng-template>

@@ -1,0 +1,27 @@
+<form (ngSubmit)="onSubmit(frm)" #frm="ngForm">
+
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="txtName" ngModel required #txtName="ngModel">
+        <div *ngIf="!txtName.valid" id="emailHelp" class="form-text text-danger">Enter Name</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Mobile</label>
+        <input type="text" class="form-control" name="txtMobile" ngModel required #txtMobile="ngModel">
+        <div *ngIf="!txtMobile.valid" id="emailHelp" class="form-text text-danger">Enter Mobile</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" name="txtEmail" ngModel required email #txtEmail="ngModel">
+        <div *ngIf="!txtEmail.valid" id="emailHelp" class="form-text text-danger">Enter Email</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+<hr>
+
+<p> Name : {{txtNameVal}}</p>
+<p> Email : {{txtEmailVal}}</p>
+<p> Mobile: {{txtMobileVal}} </p>

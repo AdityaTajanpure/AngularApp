@@ -1,0 +1,124 @@
+<h1> Manage Employees </h1>
+<hr>
+
+<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#createModal">+Add New Employee</button>
+
+<table class="table table-success table-striped">
+
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let emp of employees; let i = index">
+            <th scope="row">{{emp.empCode}}</th>
+            <td>{{emp.empName}}</td>
+            <td>{{emp.empEmail}}</td>
+            <td>{{emp.empSalary}}</td>
+            <td>
+                <button (click)="delteEmployee(i)">Delete</button> |
+                <button data-bs-toggle="modal" data-bs-target="#editModal" (click)="editEmployee(i)">Edit</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+<!-- Modal Window -->
+
+<!-- Create Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <form (ngSubmit)="onCreateSubmit(frmCreate)" #frmCreate="ngForm">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create New Eployee</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label class="form-label">Code</label>
+                        <input type="text" class="form-control" name="empCode" ngModel #empCode="ngModel">
+                        <div class="form-text text-danger">Please enter code</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="empName" ngModel #empName="ngModel">
+                        <div class="form-text text-danger">Please enter name</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control" name="empEmail" ngModel #empEmail="ngModel">
+                        <div class="form-text text-danger">Please enter email</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Salary</label>
+                        <input type="text" class="form-control" name="empSalary" ngModel #empSalary="ngModel">
+                        <div class="form-text text-danger">Please enter salary</div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add New Employee</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <form (ngSubmit)="onEditSubmit(frmEdit)" #frmEdit="ngForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Eployee</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label class="form-label">Code</label>
+                        <input type="text" class="form-control" name="editEmpCode" ngModel>
+                        <div class="form-text text-danger">Please enter code</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="editEmpName" ngModel>
+                        <div class="form-text text-danger">Please enter name</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control" name="editEmpEmail" ngModel>
+                        <div class="form-text text-danger">Please enter email</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Salary</label>
+                        <input type="text" class="form-control" name="editEmpSalary" ngModel>
+                        <div class="form-text text-danger">Please enter salary</div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update Employee</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
